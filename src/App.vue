@@ -1,29 +1,28 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
-  </div>
+  </div> -->
+  <el-container id="app">
+    <el-header>
+      <h1>PTE-Todos</h1>
+    </el-header>
+    <!-- header -->
+    <el-main>
+      <router-view/>
+    </el-main>
+    <el-footer>
+      footer
+    </el-footer>
+  </el-container>
 </template>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  max-width: 980px;
+  margin: 0 auto;
 }
 </style>
