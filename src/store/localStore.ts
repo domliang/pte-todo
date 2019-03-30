@@ -1,5 +1,6 @@
-export const STORAGE_KEY = 'todos-vuejs';
+export const STORAGE_KEY = 'pte-todos';
 
+// 从本地存储获取数据
 export const getTodosFromLocal = () => {
   return new Promise((resolve, reject) => {
     try {
@@ -11,6 +12,7 @@ export const getTodosFromLocal = () => {
   });
 };
 
+// 将数据保存到本地
 export const saveToLocal = (todos: any) => {
   return new Promise((resolve, reject) => {
     try {
