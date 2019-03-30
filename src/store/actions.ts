@@ -29,7 +29,7 @@ export default {
 
   toggleAll({ state, commit }: {state: any, commit: any}, done: any) {
     state.todos.forEach((todo: any) => {
-      commit('editTodo', { todo, done });
+      commit('editTodo', { todo, done: !todo.done });
     });
   },
 
