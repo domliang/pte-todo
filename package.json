@@ -7,15 +7,20 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "cl": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
+    "element-ui": "^2.7.0",
     "register-service-worker": "^1.6.2",
+    "rxjs": "^6.4.0",
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^8.0.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue-rx": "^6.1.0",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
@@ -27,6 +32,7 @@
     "@vue/cli-service": "^3.5.3",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
+    "conventional-changelog-cli": "^2.0.12",
     "cz-conventional-changelog": "^2.1.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
