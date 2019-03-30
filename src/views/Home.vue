@@ -15,10 +15,10 @@
 </template>
 
 <style lang="less" scoped>
-.pte-todolist {
-  list-style-type: none;
-  padding: 0;
-}
+  .pte-todolist {
+    list-style-type: none;
+    padding: 0;
+  }
 </style>
 
 
@@ -40,12 +40,8 @@ export default class Home extends Vue {
   private newTaskText: string = '';
 
   public addTodo(e: any) {
-    const text = this.newTaskText;
-    if (text.trim()) {
-      this.$store.dispatch('addTodo', text);
-    } else {
-      this.$store.dispatch('addTodo', 'New Task');
-    }
+    const text = this.newTaskText.trim() || 'New Task';
+    this.$store.dispatch('addTodo', text);
     this.showNew = false;
     this.newTaskText = '';
   }
