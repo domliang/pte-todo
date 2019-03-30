@@ -6,6 +6,11 @@ if (navigator.userAgent.indexOf('PhantomJS') > -1) {
 }
 
 export const mutations = {
+  init(state: any, todos: any): void {
+    state.todos = todos;
+
+  },
+
   addTodo(state: any, todo: any): void {
     state.todos.push(todo);
   },
