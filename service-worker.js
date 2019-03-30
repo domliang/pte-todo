@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.507fa1de5df52d2a94b14ad66c10c62d.js"
+  "precache-manifest.a5f310564633aefc4df001c6cb393786.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pte-todo"});
