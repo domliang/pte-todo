@@ -1,5 +1,5 @@
 {
-  "name": "keketodo",
+  "name": "pte-todo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,8 +20,8 @@
   "devDependencies": {
     "@types/jest": "^23.1.4",
     "@vue/cli-plugin-babel": "^3.5.3",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.5.3",
-    "@vue/cli-plugin-pwa": "^3.5.3",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.5.1",
+    "@vue/cli-plugin-pwa": "^3.5.1",
     "@vue/cli-plugin-typescript": "^3.5.3",
     "@vue/cli-plugin-unit-jest": "^3.5.3",
     "@vue/cli-service": "^3.5.3",
