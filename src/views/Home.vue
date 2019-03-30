@@ -15,7 +15,7 @@
       <i class="el-icon-success done"></i>
       <h3 class="done-desc">every thing is done</h3>
     </div>
-    <el-dialog title="Edit Todo" :visible.sync="showNew">
+    <el-dialog title="New Task" :visible.sync="showNew">
       <el-input class="new-todo-input" placeholder="New Task" v-model="newTaskText"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button @click="showNew = false">Cancel</el-button>
