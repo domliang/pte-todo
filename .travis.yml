@@ -14,9 +14,19 @@ before_script:
 
 script:
   - npm run test:unit
+  - npm run build
 
 branches:
   only:
     - master
 env:
  global:
+
+deploy:
+  local_dir: dist
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
