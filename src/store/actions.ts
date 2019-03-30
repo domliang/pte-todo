@@ -1,6 +1,12 @@
-import {shortId} from '../utils/id';
+import { shortId } from '../utils/id';
+import { getTodosFromLocal } from './localStore';
 
 export default {
+  async init({ commit }: {commit: any}) {
+    const todos = await getTodosFromLocal();
+    commit('init', todos);
+  },
+
   addTodo({ commit }: {commit: any}, text: string) {
     commit('addTodo', {
       id: shortId(),

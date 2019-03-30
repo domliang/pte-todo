@@ -68,7 +68,8 @@ export default class Home extends Vue {
   private showNew: boolean = false;
   private newTaskText: string = '';
 
-  public addTodo(e: any) {
+  // new todo
+  private addTodo(): void {
     const text = this.newTaskText.trim() || 'New Task';
     this.$store.dispatch('addTodo', text);
     this.showNew = false;
