@@ -1,4 +1,4 @@
-# PTE-Todo
+# PTE-Todo [![Build Status](https://travis-ci.com/domliang/try-travis.svg?branch=master)](https://travis-ci.com/domliang/pte-todo)
 
 ## Project setup
 
