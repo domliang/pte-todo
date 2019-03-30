@@ -4,6 +4,10 @@
       <el-button class="new-task-btn" type="primary" @click="showNew = true">New Task</el-button>
       <h3>Active : {{todoActivedCount}}/{{todoCount}}</h3>
     </div>
+    <div class="empty-area" v-show="todoCount > 0">
+      <el-button @click="toggleAll">toggle All</el-button>
+      <el-button @click="clearCompleted">clear Completed</el-button>
+    </div>
     <ul class="pte-todolist">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
     </ul>
@@ -67,6 +71,14 @@ import _ from 'lodash';
 export default class Home extends Vue {
   private showNew: boolean = false;
   private newTaskText: string = '';
+
+  private clearCompleted(): void {
+    this.$store.dispatch('clearCompleted');
+  }
+
+  private toggleAll(): void {
+    this.$store.dispatch('toggleAll');
+  }
 
   // new todo
   private addTodo(): void {
