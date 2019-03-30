@@ -1,15 +1,26 @@
 <template>
   <div class="home">
-    <input
-      placeholder="New Task"
-      @keyup.enter="addTodo"
-      autofocus
-      autocomplete="off"/>
+    <el-button type="primary" @click="showNew = true">New Task</el-button>
     <ul class="pte-todolist">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
     </ul>
+    <el-dialog title="Edit Todo" :visible.sync="showNew">
+      <el-input placeholder="Please input" v-model="newTaskText"></el-input>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showNew = false">Cancel</el-button>
+        <el-button type="primary" @click="addTodo(newTaskText)">Confirm</el-button>
+      </span>
+    </el-dialog> 
   </div>
 </template>
+
+<style lang="less" scoped>
+.pte-todolist {
+  list-style-type: none;
+  padding: 0;
+}
+</style>
+
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
@@ -25,21 +36,18 @@ import { mapState } from 'vuex';
   },
 })
 export default class Home extends Vue {
-  private todo = {
-    done: true,
-    text: 'test',
-    id: '1',
-  };
+  private showNew: boolean = false;
+  private newTaskText: string = '';
 
   public addTodo(e: any) {
-    const text = e.target.value;
+    const text = this.newTaskText;
     if (text.trim()) {
       this.$store.dispatch('addTodo', text);
     } else {
       this.$store.dispatch('addTodo', 'New Task');
     }
-    e.target.value = '';
+    this.showNew = false;
+    this.newTaskText = '';
   }
-
 }
 </script>
