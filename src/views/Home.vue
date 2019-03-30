@@ -1,10 +1,16 @@
 <template>
   <div class="home">
-    <el-button type="primary" @click="showNew = true">New Task</el-button>
-    <h3>Active Task : {{todoActivedCount}}/{{todoCount}}</h3>
+    <div class="page-top">
+      <el-button class="new-task-btn" type="primary" @click="showNew = true">New Task</el-button>
+      <h3>Active : {{todoActivedCount}}/{{todoCount}}</h3>
+    </div>
     <ul class="pte-todolist">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
     </ul>
+    <div class="empty-area" v-show="todoCount === 0">
+      <i class="el-icon-success done"></i>
+      <h3 class="done-desc">every thing is done</h3>
+    </div>
     <el-dialog title="Edit Todo" :visible.sync="showNew">
       <el-input placeholder="Please input" v-model="newTaskText"></el-input>
       <span slot="footer" class="dialog-footer">
@@ -16,9 +22,22 @@
 </template>
 
 <style lang="less" scoped>
+  .page-top {
+    text-align: center;
+  }
   .pte-todolist {
     list-style-type: none;
     padding: 0;
+  }
+  .empty-area {
+    text-align: center;
+    .done {
+      font-size: 150px;
+      color: darkgrey;
+    }
+    .done-desc {
+      color: gray;
+    }
   }
 </style>
 
