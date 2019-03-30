@@ -1,4 +1,4 @@
-import { shortId } from '../utils/id';
+import { shortId } from '@/utils/id';
 import { getTodosFromLocal } from './localStore';
 
 export default {

@@ -2,11 +2,11 @@
   <div class="home">
     <div class="page-top">
       <el-button class="new-task-btn" type="primary" @click="showNew = true">New Task</el-button>
-      <h3>Active : {{todoActivedCount}}/{{todoCount}}</h3>
+      <h3>Active : <span class="active-count">{{todoActivedCount}}</span>/<span class="all-count">{{todoCount}}</span></h3>
     </div>
     <div class="empty-area" v-show="todoCount > 0">
-      <el-button @click="toggleAll">toggle All</el-button>
-      <el-button @click="clearCompleted">clear Completed</el-button>
+      <el-button class="toggle-all" @click="toggleAll">toggle All</el-button>
+      <el-button class="clear-completed" @click="clearCompleted">clear Completed</el-button>
     </div>
     <ul class="pte-todolist">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
@@ -16,10 +16,10 @@
       <h3 class="done-desc">every thing is done</h3>
     </div>
     <el-dialog title="Edit Todo" :visible.sync="showNew">
-      <el-input placeholder="Please input" v-model="newTaskText"></el-input>
+      <el-input class="new-todo-input" placeholder="New Task" v-model="newTaskText"></el-input>
       <span slot="footer" class="dialog-footer">
         <el-button @click="showNew = false">Cancel</el-button>
-        <el-button type="primary" @click="addTodo(newTaskText)">Confirm</el-button>
+        <el-button class="new-task-save-btn" type="primary" @click="addTodo(newTaskText)">Confirm</el-button>
       </span>
     </el-dialog> 
   </div>
