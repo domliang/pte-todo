@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <el-button type="primary" @click="showNew = true">New Task</el-button>
+    <h3>Active Task : {{todoActivedCount}}/{{todoCount}}</h3>
     <ul class="pte-todolist">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/>
     </ul>
@@ -15,10 +16,10 @@
 </template>
 
 <style lang="less" scoped>
-.pte-todolist {
-  list-style-type: none;
-  padding: 0;
-}
+  .pte-todolist {
+    list-style-type: none;
+    padding: 0;
+  }
 </style>
 
 
@@ -26,10 +27,19 @@
 import { Component, Vue } from 'vue-property-decorator';
 import TodoItem from '@/components/TodoItem.vue';
 import { mapState } from 'vuex';
+import _ from 'lodash';
 
 @Component({
   computed: {
-    ...mapState( { todos: (state: any) => state.todos } ),
+    ...mapState( {
+      todos: (state: any) => state.todos,
+      todoCount: (state: any) => state.todos.length,
+      todoActivedCount: (state: any) => {
+        return _.chain(state.todos)
+        .filter((todo: any) => !todo.done)
+        .value().length;
+      },
+      } ),
   },
   components: {
     TodoItem,
@@ -40,12 +50,8 @@ export default class Home extends Vue {
   private newTaskText: string = '';
 
   public addTodo(e: any) {
-    const text = this.newTaskText;
-    if (text.trim()) {
-      this.$store.dispatch('addTodo', text);
-    } else {
-      this.$store.dispatch('addTodo', 'New Task');
-    }
+    const text = this.newTaskText.trim() || 'New Task';
+    this.$store.dispatch('addTodo', text);
     this.showNew = false;
     this.newTaskText = '';
   }
