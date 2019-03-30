@@ -35,3 +35,9 @@ yarn run test:unit
 ```bash
 yarn run test:e2e
 ```
+
+### changelogs
+
+```bash
+yarn run cl
+```
