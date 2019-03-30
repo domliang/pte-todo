@@ -1,0 +1,22 @@
+language: node_js
+# nodejs版本
+node_js: 
+    - '10'
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+before_script:
+
+script:
+  - npm run test:unit
+
+branches:
+  only:
+    - master
+env:
+ global:
